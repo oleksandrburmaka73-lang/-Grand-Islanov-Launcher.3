@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090711">
+  <title>Grand Islanov RP</title>
+  <style>
+    :root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; background: #090711; color: #f7f1ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 75% 0, #35164c, transparent 50%), #090711; }
+    main { width: min(900px, 100%); margin: auto; padding: 24px; }
+    .panel { margin-top: 20px; padding: 22px; border: 1px solid #49315f; border-radius: 18px; background: #151120dd; }
+    h1 { margin: 0; font-size: clamp(2.5rem, 11vw, 5rem); line-height: .98; font-style: italic; }
+    h1 span { color: #c26aff; }
+    .muted { color: #b9a9cc; }
+    .tag { display: inline-block; margin-bottom: 20px; padding: 5px 10px; border: 1px solid #49315f; border-radius: 99px; color: #d7b5ff; font-size: .8rem; }
+    button { min-height: 46px; margin: 6px 6px 0 0; padding: 10px 16px; border: 0; border-radius: 10px; background: #9b45ff; color: white; font: inherit; font-weight: 700; }
+    button.secondary { background: #30223d; }
+    input { width: 100%; margin: 6px 0 12px; padding: 12px; border: 1px solid #49315f; border-radius: 10px; background: #0d0a13; color: white; font: inherit; }
+    .row { display: grid; grid-template-columns: 1fr 120px; gap: 10px; }
+    @media (max-width: 480px) { main { padding: 16px; } .row { grid-template-columns: 1fr 90px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="tag">ANDROID LAUNCHER · BETA</span>
+    <h1>GRAND<br><span>ISLANOV RP</span></h1>
+    <p class="muted">Твоя история начинается здесь.</p>
+
+    <section class="panel">
+      <h2>Подключение к серверу</h2>
+      <p class="muted">Сервер: <strong id="address">188.127.241.74:3571</strong></p>
+      <button onclick="play()">▶ Играть</button>
+      <button class="secondary" onclick="copyAddress()">Копировать адрес</button>
+      <p class="muted">Для игры нужен совместимый Android SA-MP клиент. Магазин, платежи и игровой аккаунт в этой версии не подключены.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Настройки сервера</h2>
+      <label for="ip">IP-адрес</label>
+      <input id="ip" value="188.127.241.74" autocomplete="off">
+      <label for="port">Порт</label>
+      <input id="port" type="number" min="1" max="65535" value="3571" inputmode="numeric">
+      <button onclick="saveServer()">Сохранить</button>
+    </section>
+  </main>
+  <script>
+    const ipInput = document.getElementById('ip');
+    const portInput = document.getElementById('port');
+    function updateAddress(ip, port) {
+      document.getElementById('address').textContent = ip + ':' + port;
+    }
+    try {
+      ipInput.value = localStorage.getItem('serverIp') || ipInput.value;
+      portInput.value = localStorage.getItem('serverPort') || portInput.value;
+    } catch (_) { /* Storage may be unavailable in some WebView configurations. */ }
+    updateAddress(ipInput.value, portInput.value);
+    function saveServer() {
+      const ip = ipInput.value.trim();
+      const port = Number(portInput.value);
+      if (!ip || !Number.isInteger(port) || port < 1 || port > 65535) {
+        alert('Укажи корректный IP-адрес и порт от 1 до 65535.');
+        return;
+      }
+      try {
+        localStorage.setItem('serverIp', ip);
+        localStorage.setItem('serverPort', String(port));
+      } catch (_) { /* Settings still apply for this screen. */ }
+      updateAddress(ip, port);
+      alert('Настройки сервера сохранены.');
+    }
+    function copyAddress() {
+      const value = document.getElementById('address').textContent;
+      if (window.AndroidLauncher) window.AndroidLauncher.copyText(value);
+      else if (navigator.clipboard) navigator.clipboard.writeText(value).then(() => alert('Скопировано'));
+      else alert(value);
+    }
+    function play() {
+      if (window.AndroidLauncher) window.AndroidLauncher.openGame('samp://' + document.getElementById('address').textContent);
+      else alert('Для запуска игры нужен совместимый Android SA-MP клиент.');
+    }
+  </script>
+</body>
+</html>
