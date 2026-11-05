@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090711"><title>Grand Islanov RP</title>
+<style>
+:root{--bg:#090711;--panel:#151120;--panel2:#1d152b;--line:#38264d;--purple:#9b45ff;--pink:#e34cff;--text:#f7f1ff;--muted:#b9a9cc;--green:#39e77d;--gold:#ffc94a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0,#29133c 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit;cursor:pointer;color:inherit;border:0}.app{min-height:100vh;display:grid;grid-template-columns:220px 1fr}
+.sidebar{background:#0d0a15;border-right:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;gap:10px}
+.brand{font-weight:1000;font-style:italic;letter-spacing:1px;font-size:23px;padding:8px 10px 24px;color:white}.brand b{color:#c26aff}.nav{padding:13px 14px;text-align:left;border-radius:12px;background:transparent;color:var(--muted)}.nav.active,.nav:hover{background:linear-gradient(100deg,#7825d9,#37135e);color:white;box-shadow:0 0 22px #922fff55}
+.side-note{margin-top:auto;color:#8e7ba3;font-size:12px;padding:12px}
+main{padding:22px;min-width:0;max-width:1500px;width:100%;margin:auto}
+.hero{min-height:245px;border:1px solid #57317a;border-radius:20px;overflow:hidden;position:relative;background:linear-gradient(90deg,#0d0918 0%,#170b25a8 45%,#13091a22),url('images/hero-launcher.png') center 38%/cover;display:flex;align-items:end;padding:28px}
+.hero h1{font-size:clamp(30px,5vw,56px);line-height:.98;margin:0 0 12px;font-weight:1000;font-style:italic;text-shadow:0 4px 20px #000}.hero p{color:#e1c9ff;margin:0}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 16px}.tag{border:1px solid var(--line);border-radius:99px;padding:8px 12px;color:var(--muted);font-size:13px}
+.status{margin:14px 0 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#120d1c;border:1px solid var(--line);border-radius:14px;padding:13px 16px}.dot{width:9px;height:9px;display:inline-block;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);margin-right:7px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.panel{background:linear-gradient(145deg,#191324,#100d18);border:1px solid var(--line);border-radius:17px;padding:17px;min-width:0}.panel h2{font-size:18px;margin:0 0 14px}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.item{background:#0e0b15;border:1px solid #342441;border-radius:13px;overflow:hidden}.item img{width:100%;height:105px;object-fit:cover;display:block;background:linear-gradient(135deg,#392052,#110c19)}.item-body{padding:10px}.item strong{display:block;font-size:14px}.price{color:var(--gold);font-weight:800;margin:5px 0 8px}.btn{background:linear-gradient(100deg,#a23dff,#6a22c9);padding:10px 15px;border-radius:11px;font-weight:800;box-shadow:0 5px 18px #8b32ed44}.btn.secondary{background:#21152f;border:1px solid #593477;box-shadow:none}.btn:disabled{opacity:.45;cursor:not-allowed}.wide{width:100%}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.feature{display:flex;align-items:center;justify-content:space-between;gap:12px}.case{background:linear-gradient(145deg,#35164c,#120c1d);border:1px solid #7642a1;padding:14px;border-radius:13px;text-align:center}.case .emoji{font-size:38px}.case button{margin-top:8px}
+.page{display:none}.page.active{display:block}.notice{background:#21182d;border:1px solid #59406e;border-radius:12px;padding:12px;color:#d8c8e8;margin-top:14px;font-size:13px}
+.field{width:100%;background:#0d0a13;color:white;border:1px solid var(--line);border-radius:10px;padding:12px;margin:6px 0 12px}
+footer{color:#79698b;font-size:12px;padding:22px 4px}
+@media(max-width:850px){.app{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:3;flex-direction:row;overflow:auto;padding:8px;border-right:0;border-bottom:1px solid var(--line)}.brand{display:none}.nav{white-space:nowrap;padding:10px 12px}.side-note{display:none}main{padding:13px}.hero{min-height:220px}.grid{grid-template-columns:1fr}}
+@media(max-width:480px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:18px}.status{font-size:13px}}
+</style></head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="brand">♛ GRAND <b>ISLANOV</b> RP</div>
+<button class="nav active" data-page="home">⌂ Главная</button>
+<button class="nav" data-page="shop">▣ Магазин</button>
+<button class="nav" data-page="cases">◇ Кейсы</button>
+<button class="nav" data-page="donate">✦ Донат</button>
+<button class="nav" data-page="profile">♙ Профиль</button>
+<button class="nav" data-page="settings">⚙ Настройки</button>
+<div class="side-note">Твой город. Твоя история.<br>Grand Islanov RP</div>
+</aside>
+<main>
+<div class="topline"><span class="tag">ANDROID LAUNCHER · BETA</span><span class="tag">Гость · 0 GC · 0 DP</span></div>
+<section id="home" class="page active">
+<div class="hero"><div><h1>GRAND<br>ISLANOV RP</h1><p>Твоя история начинается здесь</p><div class="hero-actions"><button class="btn" onclick="play()">▶ Играть</button><button class="btn secondary" onclick="showPage('shop')">Открыть магазин</button></div></div></div>
+<div class="status"><span><i class="dot"></i><b>Сервер</b>: адрес задан</span><span class="muted">188.127.241.74:3571</span><span class="muted" id="server-note">Статус не проверен</span></div>
+<div class="grid">
+<div class="panel"><h2>Новости проекта</h2><b>Добро пожаловать в Grand Islanov RP!</b><p class="muted">Здесь появятся новости, обновления и события сервера.</p></div>
+<div class="panel"><h2>Быстрый старт</h2><p class="muted">Для входа нужен совместимый Android SA-MP клиент. Этот APK пока является оболочкой лаунчера.</p><button class="btn secondary" onclick="showPage('settings')">Настройки подключения</button></div>
+</div></section>
+<section id="shop" class="page"><div class="panel"><h2>Магазин предметов</h2><p class="muted">Демонстрационный каталог. Оплата пока не подключена.</p><div class="cards" id="shop-items"></div></div></section>
+<section id="cases" class="page"><div class="panel"><h2>Кейсы</h2><p class="muted">Витрина кейсов — открытие и выдача предметов пока демонстрационные.</p><div class="cards">
+<div class="case"><div class="emoji">👑</div><b>Королевский кейс</b><p>Машины · аксессуары · ауры</p><button class="btn" onclick="demoCase('Королевский')">Посмотреть</button></div>
+<div class="case"><div class="emoji">🚘</div><b>Автомобильный</b><p>Транспорт и тюнинг</p><button class="btn" onclick="demoCase('Автомобильный')">Посмотреть</button></div>
+<div class="case"><div class="emoji">✨</div><b>Аура-кейс</b><p>Эффекты и аксессуары</p><button class="btn" onclick="demoCase('Аура')">Посмотреть</button></div>
+</div></div></section>
+<section id="donate" class="page"><div class="panel"><h2>Донат</h2><p class="muted">Баланс демонстрационный: 0 GC · 0 DP.</p><label>Выбери пакет</label><select class="field"><option>500 GC — тестовый пакет</option><option>1 000 GC — тестовый пакет</option><option>2 500 GC — тестовый пакет</option></select><button class="btn" onclick="alert('Платежи пока не подключены. Покупка не совершена.')">Перейти к оплате</button><div class="notice">Реальные платежи подключаются только через защищённый серверный платёжный сервис. Не вводи здесь данные банковской карты.</div></div></section>
+<section id="profile" class="page"><div class="panel"><h2>Профиль игрока</h2><p class="muted">Гостевой режим</p><label>Игровой ник</label><input class="field" placeholder="Введите ник персонажа"><label>Статус аккаунта</label><p>Не авторизован</p><button class="btn secondary" onclick="alert('Авторизация появится после подключения серверного API.')">Войти / зарегистрироваться</button></div></section>
+<section id="settings" class="page"><div class="panel"><h2>Настройки</h2><label>IP сервера</label><input class="field" id="server-ip" value="188.127.241.74"><label>Порт</label><input class="field" id="server-port" value="3571"><button class="btn secondary" onclick="saveServer()">Сохранить адрес</button><div class="notice">Веб-страница не может достоверно проверить SA-MP UDP-сервер обычным HTTP-запросом. Кнопка «Играть» пока показывает инструкцию, так как совместимый игровой APK ещё не добавлен.</div></div></section>
+<footer>Grand Islanov RP · Независимый проект. Не связан с Arizona RP.</footer>
+</main></div>
+<script>
+const products=[
+['Спортивный автомобиль','🚗','1499 GC'],['Скин «Уличный»','🧥','499 GC'],['Фиолетовая аура','✨','299 GC'],
+['Золотой аксессуар','👑','199 GC'],['Премиум транспорт','🏎️','1999 GC'],['Неоновый эффект','💜','349 GC']
+];
+document.getElementById('shop-items').innerHTML=products.map((p,i)=>`<article class="item"><div style="height:105px;display:grid;place-items:center;font-size:48px;background:linear-gradient(135deg,#301747,#100c18)">${p[1]}</div><div class="item-body"><strong>${p[0]}</strong><div class="price">${p[2]}</div><button class="btn secondary wide" onclick="buyDemo('${p[0]}')">Подробнее</button></div></article>`).join('');
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo(0,0)}
+document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+function buyDemo(name){alert('«'+name+'» — витрина. Реальная покупка пока не подключена.')}
+function demoCase(name){alert(name+' кейс: это демонстрационный экран, предметы не выдаются.')}
+function play(){alert('Игровой клиент Grand Islanov RP пока не добавлен. Установи совместимый SA-MP Android-клиент и интегрируй его запуск. Один IP не создаёт игровой APK.')}
+function saveServer(){let ip=document.getElementById('server-ip').value.trim(),port=document.getElementById('server-port').value.trim();if(!ip||!port){alert('Заполни IP и порт');return}document.getElementById('server-note').textContent='Адрес сохранён: '+ip+':'+port;alert('Адрес сохранён в интерфейсе. Проверка SA-MP ещё не подключена.')}
+</script></body></html>
