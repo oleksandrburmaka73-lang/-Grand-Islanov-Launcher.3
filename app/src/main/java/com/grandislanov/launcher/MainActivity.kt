@@ -12,7 +12,6 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 
 class MainActivity : Activity() {
     private lateinit var web: WebView
@@ -28,13 +27,17 @@ class MainActivity : Activity() {
             addJavascriptInterface(LauncherBridge(this@MainActivity), "AndroidLauncher")
             loadUrl("file:///android_asset/index.html")
         }
-        setContentView(web)
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (web.canGoBack()) web.goBack() else finish()
-            }
-        })
+        setContentView(web)
+    }
+
+    @Deprecated("Deprecated in Android, but required for Activity back navigation")
+    override fun onBackPressed() {
+        if (::web.isInitialized && web.canGoBack()) {
+            web.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onDestroy() {
